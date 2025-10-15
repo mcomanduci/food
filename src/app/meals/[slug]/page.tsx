@@ -19,6 +19,20 @@ interface Meal {
   instructions: string;
 }
 
+export async function generateMetadata({ params }: MealPageProps) {
+  const meal = getMeal(params.slug) as Meal;
+  if (!meal) {
+    return {
+      title: "Meal Not Found - NextLevel Food",
+      description: "The meal you are looking for does not exist.",
+    };
+  }
+  return {
+    title: `${meal.title} - NextLevel Food`,
+    description: meal.summary,
+  };
+}
+
 export default function MealPage({ params }: MealPageProps) {
   const meal = getMeal(params.slug) as Meal;
   if (!meal) {

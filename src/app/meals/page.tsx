@@ -1,6 +1,12 @@
 import { Suspense } from "react";
 import MealsLoader from "@/components/meals/meals-loader";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "All Meals - NextLevel Food",
+  description: "Browse all delicious meals shared by our vibrant community.",
+};
 
 export default function MealsPage() {
   return (
